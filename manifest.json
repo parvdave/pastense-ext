@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Clara",
+  "version": "1.0",
+  "description": "Logs each visited page to a local FastAPI server.",
+  "permissions": ["scripting", "activeTab", "tabs", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
+    },
+    "default_popup": "popup.html"
+  }
+}
